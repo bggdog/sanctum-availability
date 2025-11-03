@@ -1,0 +1,26 @@
+@import "./index.css";
+
+/* Additional scoping for embed to prevent style leakage */
+#spark-map-widget {
+  /* Reset any inherited styles */
+  all: initial;
+  
+  /* Re-enable essential properties */
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  
+  /* Ensure proper rendering */
+  box-sizing: border-box;
+  
+  /* Apply the app styles within this container */
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Ensure the widget content doesn't inherit unwanted styles from parent */
+#spark-map-widget > * {
+  all: revert;
+}
+

@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Therapy Services Design System - Calming healthcare colors with smooth animations */
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --primary: 200 95% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 200 85% 65%;
+
+    --secondary: 160 35% 85%;
+    --secondary-foreground: 160 60% 25%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 175 70% 88%;
+    --accent-foreground: 175 80% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 31% 91%;
+    --input: 210 40% 98%;
+    --ring: 200 95% 45%;
+
+    /* Therapy Service Colors */
+    --speech-therapy: 45 100% 60%;
+    --occupational-therapy: 160 100% 40%;
+    --physical-therapy: 260 85% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--accent)) 100%);
+    --gradient-floating: linear-gradient(45deg, hsl(var(--primary-glow) / 0.1) 0%, hsl(var(--accent) / 0.2) 100%);
+    
+    /* Animations */
+    --animation-bounce-slow: bounce 3s ease-in-out infinite;
+    --animation-float: float 6s ease-in-out infinite;
+    --animation-pulse-soft: pulse-soft 4s ease-in-out infinite;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 30% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 30% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 30% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 95% 55%;
+    --primary-foreground: 215 30% 8%;
+    --primary-glow: 200 85% 75%;
+
+    --secondary: 160 20% 20%;
+    --secondary-foreground: 160 40% 90%;
+
+    --muted: 215 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 175 30% 20%;
+    --accent-foreground: 175 40% 90%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 30% 18%;
+    --input: 215 30% 15%;
+    --ring: 200 95% 55%;
+
+    /* Dark mode therapy colors */
+    --speech-therapy: 45 90% 65%;
+    --occupational-therapy: 160 80% 50%;
+    --physical-therapy: 260 75% 70%;
+
+    /* Dark gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--accent)) 100%);
+    --gradient-floating: linear-gradient(45deg, hsl(var(--primary-glow) / 0.05) 0%, hsl(var(--accent) / 0.1) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: var(--transition-smooth);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Floating Elements */
+.floating-element {
+  animation: var(--animation-float);
+  transition: var(--transition-smooth);
+}
+
+.floating-element:nth-child(2n) {
+  animation-delay: -2s;
+  animation-duration: 8s;
+}
+
+.floating-element:nth-child(3n) {
+  animation-delay: -4s;
+  animation-duration: 10s;
+}
+
+/* Custom Utility Classes */
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.gradient-hero {
+  background: var(--gradient-hero);
+}
+
+.gradient-card {
+  background: var(--gradient-card);
+}
+
+.text-therapy-speech {
+  color: hsl(var(--speech-therapy));
+}
+
+.text-therapy-occupational {
+  color: hsl(var(--occupational-therapy));
+}
+
+.text-therapy-physical {
+  color: hsl(var(--physical-therapy));
+}
+
+.bg-therapy-speech {
+  background-color: hsl(var(--speech-therapy));
+}
+
+.bg-therapy-occupational {
+  background-color: hsl(var(--occupational-therapy));
+}
+
+.bg-therapy-physical {
+  background-color: hsl(var(--physical-therapy));
+}

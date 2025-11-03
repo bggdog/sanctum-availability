@@ -1,0 +1,81 @@
+═══════════════════════════════════════════════════════════════
+ SPARK MAP WIDGET - READY FOR WEBFLOW!
+═══════════════════════════════════════════════════════════════
+
+🎯 YOU NOW HAVE A SINGLE HTML FILE WITH EVERYTHING EMBEDDED!
+
+File: spark-map-widget-READY-TO-USE.html (or dist-embed/embed.html)
+Size: 788 KB (233 KB when compressed)
+Contains: ALL code, styles, and functionality
+
+═══════════════════════════════════════════════════════════════
+ OPTION 1: DIRECT PASTE (EASIEST!)
+═══════════════════════════════════════════════════════════════
+
+1. Open: spark-map-widget-READY-TO-USE.html in any text editor
+2. Select All (Ctrl+A or Cmd+A)
+3. Copy (Ctrl+C or Cmd+C)
+4. In Webflow:
+   - Drag an "Embed" element onto your page
+   - Paste the code
+   - Save
+5. Publish your site!
+
+✅ No hosting needed
+⚠️  Large embed code
+
+═══════════════════════════════════════════════════════════════
+ OPTION 2: HOSTED IFRAME (RECOMMENDED FOR PRODUCTION)
+═══════════════════════════════════════════════════════════════
+
+1. Upload spark-map-widget-READY-TO-USE.html to hosting:
+   → Netlify Drop: https://app.netlify.com/drop
+   → Just drag the file onto the page!
+
+2. Copy the URL you get (like https://your-site.netlify.app/...)
+
+3. In Webflow, drag an "Embed" element and paste:
+
+   <iframe 
+     src="YOUR-URL-HERE/spark-map-widget-READY-TO-USE.html"
+     width="100%"
+     height="800px"
+     frameborder="0"
+     style="border: none; border-radius: 8px;"
+   ></iframe>
+
+4. Publish your site!
+
+✅ Better performance
+✅ Cacheable
+✅ Faster page loads
+
+═══════════════════════════════════════════════════════════════
+ NEED TO REBUILD?
+═══════════════════════════════════════════════════════════════
+
+If you make changes to the app:
+
+1. Open terminal in this folder
+2. Run: npm run build:embed
+3. New file will be created in dist-embed/embed.html
+4. Upload/paste the new version
+
+═══════════════════════════════════════════════════════════════
+ DOCUMENTATION
+═══════════════════════════════════════════════════════════════
+
+START_HERE.md ................. Quick start guide (2 steps!)
+SINGLE_FILE_EMBED.md .......... Complete embedding guide
+WEBFLOW_EMBED_GUIDE.md ........ Alternative methods
+
+═══════════════════════════════════════════════════════════════
+ THAT'S IT!
+═══════════════════════════════════════════════════════════════
+
+Your widget is ready to go. Choose your method above and deploy!
+
+Questions? Check START_HERE.md or SINGLE_FILE_EMBED.md
+
+Happy embedding! 🎉
+
