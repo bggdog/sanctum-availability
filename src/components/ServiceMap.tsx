@@ -229,18 +229,18 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
-      className="w-full max-w-6xl mx-auto mt-12"
+      className="w-full max-w-6xl mx-auto mt-8 md:mt-12 px-2 sm:px-0"
     >
-      <Card className="p-6 gradient-card border-white/20 shadow-xl">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold mb-2">Service Coverage Map</h3>
-          <p className="text-muted-foreground">
+      <Card className="p-4 sm:p-6 gradient-card border-white/20 shadow-xl">
+        <div className="text-center mb-4 sm:mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold mb-2">Service Coverage Map</h3>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Interactive map showing our therapy service coverage in your area
           </p>
         </div>
 
         {/* Map */}
-        <div className="w-full h-96 rounded-lg overflow-hidden border-2 border-white/20 mb-6">
+        <div className="w-full h-64 sm:h-96 rounded-lg overflow-hidden border-2 border-white/20 mb-4 sm:mb-6">
           <div ref={mapContainer} className="w-full h-full"></div>
         </div>
 
@@ -259,20 +259,20 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
               >
                 <Card className={`p-4 border-2 ${colors.border}`}>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-full ${colors.bg}/20`}>
+                      <div className={`p-2 rounded-full ${colors.bg}/20 flex-shrink-0`}>
                         <Icon className={`w-5 h-5 ${colors.text}`} />
                       </div>
-                      <div>
-                        <h4 className="font-bold">{service.name}</h4>
-                        <p className="text-sm text-muted-foreground">{service.description}</p>
+                      <div className="min-w-0">
+                        <h4 className="font-bold truncate">{service.name}</h4>
+                        <p className="text-sm text-muted-foreground truncate">{service.description}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
                       <Badge 
                         variant="outline" 
-                        className={`${colors.text} ${colors.border} font-semibold`}
+                        className={`${colors.text} ${colors.border} font-semibold text-center sm:text-left`}
                       >
                         {getStatusBadgeText(status)}
                       </Badge>
@@ -281,10 +281,10 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                           onClick={() => window.location.href = "tel:+19728851550"}
                           variant="outline"
                           size="sm"
-                          className="border-yellow-300 text-yellow-600 hover:bg-yellow-50"
+                          className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 w-full sm:w-auto"
                         >
                           <Phone className="w-4 h-4 mr-2" />
-                          Call (972) 885-1550
+                          <span className="hidden sm:inline">Call </span>(972) 885-1550
                         </Button>
                       )}
                       {status === "green" && (
@@ -292,7 +292,7 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                           onClick={() => window.open("https://www.sanctumhealthpartners.com/referral-form", "_blank")}
                           variant="outline"
                           size="sm"
-                          className="border-green-300 text-green-600 hover:bg-green-50"
+                          className="border-green-300 text-green-600 hover:bg-green-50 w-full sm:w-auto"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Referral Form
@@ -303,7 +303,7 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                           onClick={() => window.open("https://www.sanctumhealthpartners.com/tele-therapy", "_blank")}
                           variant="outline"
                           size="sm"
-                          className="border-red-300 text-red-600 hover:bg-red-50"
+                          className="border-red-300 text-red-600 hover:bg-red-50 w-full sm:w-auto"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Try Teletherapy
@@ -318,28 +318,31 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
         </div>
 
         {/* Legend */}
-        <Card className="p-4 gradient-card border-white/20">
-          <h4 className="text-sm font-semibold mb-3 text-center">Color Legend</h4>
-          <div className="grid grid-cols-3 gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <div>
+        <Card className="p-3 sm:p-4 gradient-card border-white/20">
+          <h4 className="text-xs sm:text-sm font-semibold mb-3 text-center">Color Legend</h4>
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2">
+              <div className="w-3 h-3 rounded-full bg-green-500 flex-shrink-0"></div>
+              <div className="text-center sm:text-left">
                 <p className="text-xs font-medium">Green</p>
-                <p className="text-xs text-muted-foreground">Available</p>
+                <p className="text-xs text-muted-foreground hidden sm:block">Available</p>
+                <p className="text-[10px] text-muted-foreground sm:hidden">Available</p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2">
+              <div className="w-3 h-3 rounded-full bg-yellow-500 flex-shrink-0"></div>
+              <div className="text-center sm:text-left">
                 <p className="text-xs font-medium">Yellow</p>
-                <p className="text-xs text-muted-foreground">Confirm Availability</p>
+                <p className="text-xs text-muted-foreground hidden sm:block">Confirm</p>
+                <p className="text-[10px] text-muted-foreground sm:hidden">Confirm</p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500 flex-shrink-0"></div>
+              <div className="text-center sm:text-left">
                 <p className="text-xs font-medium">Red</p>
-                <p className="text-xs text-muted-foreground">Not Available</p>
+                <p className="text-xs text-muted-foreground hidden sm:block">Not Available</p>
+                <p className="text-[10px] text-muted-foreground sm:hidden">Not Available</p>
               </div>
             </div>
           </div>

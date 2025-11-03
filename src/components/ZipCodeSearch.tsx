@@ -98,22 +98,22 @@ const ZipCodeSearch = ({ onResultsFound, onZipCodeSearched }: ZipCodeSearchProps
       transition={{ duration: 0.6 }}
       className="w-full max-w-md mx-auto"
     >
-      <Card className="p-8 gradient-card backdrop-blur-sm border-white/20 shadow-2xl">
+      <Card className="p-6 sm:p-8 gradient-card backdrop-blur-sm border-white/20 shadow-2xl">
         <motion.div
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-center mb-6"
+          className="text-center mb-4 sm:mb-6"
         >
-          <div className="flex justify-center mb-4">
-            <div className="p-3 rounded-full bg-primary/10">
-              <MapPin className="w-8 h-8 text-primary" />
+          <div className="flex justify-center mb-3 sm:mb-4">
+            <div className="p-2 sm:p-3 rounded-full bg-primary/10">
+              <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             </div>
           </div>
-          <h2 className="text-2xl font-bold text-foreground mb-2">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
             Find Your Services
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Enter your zip code to discover available therapy services
           </p>
         </motion.div>
@@ -126,16 +126,16 @@ const ZipCodeSearch = ({ onResultsFound, onZipCodeSearched }: ZipCodeSearchProps
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="pl-12 h-12 text-lg border-2 focus:border-primary transition-all duration-300"
+              className="pl-12 h-11 sm:h-12 text-base sm:text-lg border-2 focus:border-primary transition-all duration-300"
               maxLength={10}
             />
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
           </div>
 
           <Button
             onClick={handleSearch}
             disabled={isLoading}
-            className="w-full h-12 text-lg font-semibold gradient-hero hover:scale-105 transition-all duration-300 shadow-lg"
+            className="w-full h-11 sm:h-12 text-base sm:text-lg font-semibold gradient-hero hover:scale-105 transition-all duration-300 shadow-lg"
           >
             {isLoading ? (
               <motion.div

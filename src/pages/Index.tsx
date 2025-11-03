@@ -25,16 +25,16 @@ const Index = () => {
       {/* Main Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-4 py-20">
-          <div className="max-w-6xl mx-auto text-center">
+        <section className="min-h-screen sm:min-h-screen flex items-center justify-center px-4 py-12 sm:py-20">
+          <div className="max-w-6xl mx-auto text-center w-full">
             {/* Header */}
             <motion.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-12"
+              className="mb-8 sm:mb-12"
             >
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center mb-4 sm:mb-6">
                 <motion.div
                   animate={{ 
                     rotate: [0, 5, -5, 0],
@@ -45,14 +45,14 @@ const Index = () => {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="p-4 rounded-full gradient-hero shadow-2xl"
+                  className="p-3 sm:p-4 rounded-full gradient-hero shadow-2xl"
                 >
-                  <Stethoscope className="w-12 h-12 text-white" />
+                  <Stethoscope className="w-8 h-8 sm:w-12 sm:h-12 text-white" />
                 </motion.div>
               </div>
               
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-br from-primary via-primary-glow to-accent bg-clip-text text-transparent"
+                className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-br from-primary via-primary-glow to-accent bg-clip-text text-transparent px-2"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -61,7 +61,7 @@ const Index = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -95,7 +95,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+                className="mt-8 sm:mt-16 grid md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto"
               >
                 {[
                   { icon: Stethoscope, title: "Speech Therapy", desc: "Communication & Language" },
