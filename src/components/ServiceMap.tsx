@@ -258,30 +258,36 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
               >
-                <Card className={`p-4 border-2 ${colors.border}`}>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div className="flex items-center gap-3">
+                <Card className={`p-3 sm:p-4 border-2 ${colors.border}`}>
+                  <div className="flex flex-col gap-3">
+                    {/* Service Name and Icon Row */}
+                    <div className="flex items-center gap-2 sm:gap-3">
                       <div className={`p-2 rounded-full ${colors.bg}/20 flex-shrink-0`}>
-                        <Icon className={`w-5 h-5 ${colors.text}`} />
+                        <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${colors.text}`} />
                       </div>
-                      <div className="min-w-0">
-                        <h4 className="font-bold truncate">{service.name}</h4>
-                        <p className="text-sm text-muted-foreground truncate">{service.description}</p>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-bold text-sm sm:text-base">{service.name}</h4>
+                        <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">{service.description}</p>
                       </div>
-                    </div>
-                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
                       <Badge 
                         variant="outline" 
-                        className={`${colors.text} ${colors.border} font-semibold text-center sm:text-left`}
+                        className={`${colors.text} ${colors.border} font-semibold text-xs sm:text-sm whitespace-nowrap flex-shrink-0`}
                       >
                         {getStatusBadgeText(status)}
                       </Badge>
+                    </div>
+                    
+                    {/* Description on Mobile */}
+                    <p className="text-xs text-muted-foreground sm:hidden pl-0 sm:pl-[50px]">{service.description}</p>
+                    
+                    {/* Action Button */}
+                    <div className="w-full">
                       {status === "yellow" && (
                         <Button
                           onClick={() => window.location.href = "tel:+19728851550"}
                           variant="outline"
                           size="sm"
-                          className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 w-full sm:w-auto"
+                          className="border-yellow-300 text-yellow-600 hover:bg-yellow-50 w-full text-sm"
                         >
                           <Phone className="w-4 h-4 mr-2" />
                           <span className="hidden sm:inline">Call </span>(972) 885-1550
@@ -292,7 +298,7 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                           onClick={() => window.open("https://www.sanctumhealthpartners.com/referral-form", "_blank")}
                           variant="outline"
                           size="sm"
-                          className="border-green-300 text-green-600 hover:bg-green-50 w-full sm:w-auto"
+                          className="border-green-300 text-green-600 hover:bg-green-50 w-full text-sm"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Referral Form
@@ -303,7 +309,7 @@ const ServiceMap = ({ services, searchedZipCode }: ServiceMapProps) => {
                           onClick={() => window.open("https://www.sanctumhealthpartners.com/tele-therapy", "_blank")}
                           variant="outline"
                           size="sm"
-                          className="border-red-300 text-red-600 hover:bg-red-50 w-full sm:w-auto"
+                          className="border-red-300 text-red-600 hover:bg-red-50 w-full text-sm"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           Try Teletherapy
